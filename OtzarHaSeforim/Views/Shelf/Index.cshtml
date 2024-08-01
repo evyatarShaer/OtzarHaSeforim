@@ -1,0 +1,53 @@
+﻿@model IEnumerable<OtzarHaSeforim.Models.ShelfModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Shelves</h1>
+
+@Html.ActionLink("Add shelf", "Create", new {  id=ViewBag.Id })
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HighShelf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WidthShelf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LibraryId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighShelf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WidthShelf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibraryId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("SetBooks", "Index", "SetBooks", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

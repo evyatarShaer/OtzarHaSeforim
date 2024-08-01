@@ -1,0 +1,63 @@
+﻿@model IEnumerable<OtzarHaSeforim.Models.BookModel>
+
+@{
+    ViewData["Title"] = "Index"; 
+}
+
+<h1>Books</h1>
+@Html.ActionLink("Add book", "Create", new { id = ViewBag.Id })
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenreBook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HighBook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WidthBook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SetBooksId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreBook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighBook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WidthBook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SetBooksId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
